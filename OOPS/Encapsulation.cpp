@@ -1,5 +1,10 @@
 #include <iostream>
 
+//ENCAPSULATION : in C++ is defined as the wrapping up of data and information in a single unit. 
+//In Object Oriented Programming, 
+//Encapsulation is defined as binding together the data and the functions 
+//that manipulate them.
+
 
 using namespace std;
 
@@ -13,6 +18,10 @@ public:
     void setname(string name){
         Name = name;
     }
+
+    //HERE GETTERS AND SETTERS ARE USED TO 
+    //TO GIVE ACCESS TO THE VARIABLES WHICH WR WANT TO HIDE
+
     //getter
     string getName(){
         return Name;
