@@ -2,6 +2,11 @@
 
 using namespace std;
 
+//using backtracking to check if any other better substring option is there for each substring created 
+//placing each substring in a hashmap
+
+
+
 class Solution{
   
   void allPos(string& s,int pos , int& maxCount, unordered_set<string>& uniqueSub){
