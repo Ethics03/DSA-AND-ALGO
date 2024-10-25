@@ -30,7 +30,27 @@ public:
       head = newnode;              //and then make head as newnode 
     }
 
-    
+
+      //inserting elements at the end of the list
+    void insertAtEnd(int val){
+      Node* newnode = new Node();
+      newnode->data = val;
+      newnode->next = NULL;
+
+      if(!head){
+        head = newnode;
+        return;
+      }
+
+      Node* temp = head;
+      while(temp->next){
+        temp = temp->next;
+      }
+
+      temp->next = newnode;
+
+    }
+
  void display(){
         if (!head) {
             cout << "List is empty." << endl;
@@ -49,12 +69,13 @@ public:
 
 int main() {
   
+LinkedList l1;
 
-
-  LinkedList l1;
-  l1.insertAtBeginning(5);
-  l2.insertAtBeginning(6);
-  l1.display();
+l1.insertAtEnd(6);
+l1.insertAtEnd(7);
+l1.insertAtBeginning(10);
+l1.insertAtEnd(8);
+l1.display();
 
   return 0;
 }
