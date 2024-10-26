@@ -11,7 +11,7 @@ using namespace std;
 struct Node{
   
   int data;
-  Node *next;
+  Node *next; // this is the pointer that the next node contains
 
 };
 
@@ -51,6 +51,99 @@ public:
 
     }
 
+void insertAtPosition(int val , int pos){
+  if(pos <  1){
+    cout << "Position should be >= 1" << endl;
+    return;
+  }
+
+  if(pos == 1){
+    insertAtBeginning(val);
+    return;
+  }
+
+  Node* newnode = new Node();
+  newnode->data = val;
+  
+  Node *temp = head;
+  for(int i = 1 ;  i  < pos - 1 && temp; ++i){
+
+    temp = temp->next;
+  }
+
+  if(!temp){
+    cout << "Position out of range. " << endl;
+    delete newnode;
+    return;
+
+  }
+
+  newnode->next = temp->next;
+  temp->next = newnode;
+}
+
+void deleteFromBeginning(){
+
+  if(!head){
+    cout << "List is Empty! " << endl;
+    return; 
+    }
+
+  Node* temp = head; // this defines the temp to the old head
+  head = head->next; // this makes the head value the newnode 
+  delete temp;  // this deletes the old pointer of the head
+
+}
+
+void deleteFromEnd(){
+  if(!head){
+    cout << "List is empty ! " << endl;
+    return;
+    }
+
+  if(!head->next){
+    delete head;
+    head = NULL;
+    return;
+  }
+
+  Node* temp = head;
+
+  while(temp->next->next){
+    temp = temp->next;
+  }
+
+  delete temp->next;
+
+  temp->next = NULL;
+}
+
+void deleteFromPosition(int pos){
+  if(pos < 1){
+    cout << "Position should be >=  1 " << endl;
+    return;
+  }
+  if(pos == 1){
+    deleteFromBeginning();
+    return;
+  }
+  Node *temp = head;
+  for(int i = 1 ; i < pos - 1 && temp; i++){
+    temp = temp->next;
+  }
+
+  if(!temp || !temp->next){
+    cout << "Position out of range" << endl;
+  }
+
+  Node *nodeToDelete = temp->next;
+  temp->next = temp->next->next; // assigns the value of 
+  delete nodeToDelete;
+
+
+
+}
+
  void display(){
         if (!head) {
             cout << "List is empty." << endl;
@@ -75,6 +168,9 @@ l1.insertAtEnd(6);
 l1.insertAtEnd(7);
 l1.insertAtBeginning(10);
 l1.insertAtEnd(8);
+l1.insertAtPosition(12,2);
+l1.insertAtPosition(45,3);
+
 l1.display();
 
   return 0;
