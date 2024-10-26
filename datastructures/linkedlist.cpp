@@ -144,6 +144,22 @@ void deleteFromPosition(int pos){
 
 }
 
+void Reverse(){ //for reversing a linkedlist
+  Node  *next, *prev,*current;
+  current = head;
+  
+  prev = NULL;
+
+  while(current != NULL){
+    next = current->next;
+    current->next = prev; 
+    prev = current;
+    current = next;
+  }
+  head = prev;
+
+}
+
  void display(){
         if (!head) {
             cout << "List is empty." << endl;
@@ -172,7 +188,8 @@ l1.insertAtPosition(12,2);
 l1.insertAtPosition(45,3);
 
 l1.display();
-
+l1.Reverse();
+l1.display();
   return 0;
 }
     
