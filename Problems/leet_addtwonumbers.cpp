@@ -21,7 +21,7 @@ using namespace std;
         while(l1 != nullptr || l2 != nullptr || carry != 0){
             int x = (l1!=nullptr)? l1->val : 0;
             int y = (l2 != nullptr)? l2->val : 0;
-
+ 
             int sm = x + y + carry; 
             carry = sm / 10;
             sm  = sm % 10;
